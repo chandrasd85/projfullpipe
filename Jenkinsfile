@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label '  '
-    }
+    agent any
 
     environment {
         function_name = 'java-sample'
