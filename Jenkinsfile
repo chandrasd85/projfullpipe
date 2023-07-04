@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'fullpipe'
+        label ' '
     }
 
     environment {
