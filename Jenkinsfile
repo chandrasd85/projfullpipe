@@ -66,7 +66,7 @@ pipeline {
                     }
                     steps {
                         echo 'Build'
-                        // sh "aws lambda update-function-code --function-name $java-sample --region us-east-2 --s3-bucket finalbucket123 --s3-key sample-1.0.3.jar"
+                        sh "aws lambda update-function-code --function-name $java-sample --region us-east-2 --s3-bucket finalbucket123 --s3-key sample-1.0.3.jar"
                     }
                 }
             }
