@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        function_name = 'java-sample'
+        function_name = 'mycron'
     }
 
     stages {
@@ -26,7 +26,7 @@ pipeline {
                 }
             }
             steps {
-                withSonarQubeEnv('evallepu') {
+                withSonarQubeEnv('Sonar') {
                     sh 'mvn sonar:sonar'
                 }
             }
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 echo 'Push'
 
-                sh "aws s3 cp target/sample-1.0.3.jar s3://finalbucket123"
+                sh "aws s3 cp target/sample-1.0.3.jar s3://fulljenkins"
             }
         }
 
@@ -66,7 +66,7 @@ pipeline {
                     steps {
                         echo 'Build'
 
-                        //sh "aws lambda update-function-code --function-name $function_name --region us-east-1 --s3-bucket finalbucket123 --s3-key sample-1.0.3.jar"
+                        //sh "aws lambda update-function-code --function-name $function_name --region us-east-1 --s3-bucket fulljenkins --s3-key sample-1.0.3.jar"
                     }
                 }
 
@@ -77,7 +77,7 @@ pipeline {
                     steps {
                         echo 'Build'
 
-                        //sh "aws lambda update-function-code --function-name $function_name --region us-east-1 --s3-bucket finalbucket123 --s3-key sample-1.0.3.jar"
+                        //sh "aws lambda update-function-code --function-name $function_name --region us-east-1 --s3-bucket fulljenkins --s3-key sample-1.0.3.jar"
                     }
                 }
             }
